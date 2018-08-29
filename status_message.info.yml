@@ -1,0 +1,7 @@
+name: 'Status Message'
+description: 'Module for changing status message'
+package: Dots
+core: 8.x
+type: module
+
+configure: modal_window.admin_settings

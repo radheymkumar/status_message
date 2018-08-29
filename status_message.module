@@ -1,0 +1,21 @@
+<?php
+
+function status_message_page_attachments(array &$attachments) {
+	$config = \Drupal::config('status_message.settings');
+
+	$attachments['#attached']['library'][] = 'status_message/modal_window';
+	$attachments['#attached']['drupalSettings']['statusMessage']['modalWindow']['width'] = $config->get('width');
+	$attachments['#attached']['drupalSettings']['statusMessage']['modalWindow']['height'] = $config->get('height');
+	$attachments['#attached']['drupalSettings']['statusMessage']['modalWindow']['background'] = $config->get('background');
+}
+
+function status_message_theme_registry_alter(&$theme_registry) {
+	//echo "<pre>";
+	//$theme_registry['status_messages']['theme path'] = array(0 => drupal_get_path('module', 'status_message') . '/templates');
+	$theme_registry['status_messages']['theme path'] = drupal_get_path('module', 'status_message') . '/templates';
+	$theme_registry['status_messages']['path'] = drupal_get_path('module', 'status_message') . '/templates';
+	 // tell the theme system to use 'status_message.html.twig' as the template file. Note that you do not include 'html.twig'
+	$theme_registry['status_messages']['template'] = 'status_message';
+	//print_r($theme_registry['status_messages']);
+	//die;
+}

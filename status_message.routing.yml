@@ -1,0 +1,15 @@
+status_message.admin_config:
+  path: '/admin/config/status-message'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Settings for status message'
+  requirements:
+    _permission: 'access administration pages'
+
+modal_window.admin_settings:
+  path: '/admin/config/status-message/modal-window'
+  defaults:
+    _form: '\Drupal\status_message\Form\StatusMessageSettings'
+    _title: 'Settings for modal window'
+  requirements:
+    _permission: 'administer site configuration'
